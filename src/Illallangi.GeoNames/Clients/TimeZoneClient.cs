@@ -25,7 +25,8 @@
                     {
                         { "lat", latitude.ToString(CultureInfo.InvariantCulture) },
                         { "lng", longitude.ToString(CultureInfo.InvariantCulture) },
-                    });
+                    },
+                CacheMode.ForceCache);
         }
     }
 }

@@ -110,6 +110,19 @@
         <File Id="TavisUriTemplatesDllF" KeyPath="yes" Source="$(var.source)\Tavis.UriTemplates.dll" />
       </Component>
 
+      <Component Id="SQLiteInteropdllC" Directory="SOFTWAREDIR" Guid="{B70F98F3-71AF-409E-A889-23B21479BA8F}" Permanent="yes" >
+        <File Id="SQLiteInteropdllF" KeyPath="yes" Source="$(var.source)\SQLite.Interop.dll" />
+      </Component>
+      <Component Id="SystemDataSQLitedllC" Directory="SOFTWAREDIR" Guid="{0F3A1743-0F66-41B7-91E4-BC38AB0B2772}" Permanent="yes" >
+        <File Id="SystemDataSQLitedllF" KeyPath="yes" Source="$(var.source)\System.Data.SQLite.dll" />
+      </Component>
+
+      <Component Id="IllallangiETagCachedllC" Directory="SOFTWAREDIR" Guid="{27FEBB92-074C-485E-90D7-92702D3B254C}" Permanent="yes" >
+        <File Id="IllallangiETagCachedllF" KeyPath="yes" Source="$(var.source)\Illallangi.ETagCache.dll" />
+      </Component>
+      <Component Id="IllallangiLiteOrmdllC" Directory="SOFTWAREDIR" Guid="{2BBA6410-935D-40D8-AF85-656FA6F751DA}" Permanent="yes" >
+        <File Id="IllallangiLiteOrmdllF" KeyPath="yes" Source="$(var.source)\Illallangi.LiteOrm.dll" />
+      </Component>
       <ComponentRef Id="Empty" />
     </Feature>
 

@@ -117,13 +117,24 @@
 
     <Copy SourceFiles="$(SourceDir)\Illallangi.GeoNames.PowerShell\bin\$(Configuration)\Tavis.UriTemplates.dll"
           DestinationFolder="$(BuildDir32)\bin" />
+
+    <Copy SourceFiles="$(SourceDir)\Illallangi.GeoNames.PowerShell\bin\$(Configuration)\System.Data.SQLite.dll"
+          DestinationFolder="$(BuildDir32)\bin" />
+
+    <Copy SourceFiles="$(SourceDir)\Illallangi.GeoNames.PowerShell\bin\$(Configuration)\Illallangi.LiteOrm.dll"
+          DestinationFolder="$(BuildDir32)\bin" />
+
+    <Copy SourceFiles="$(SourceDir)\Illallangi.GeoNames.PowerShell\bin\$(Configuration)\Illallangi.ETagCache.dll"
+          DestinationFolder="$(BuildDir32)\bin" />
+
+    <Copy SourceFiles="$(SourceDir)\Illallangi.GeoNames.PowerShell\bin\$(Configuration)\x86\SQLite.Interop.dll"
+          DestinationFolder="$(BuildDir32)\bin" />
   </Target>
   
   <Target Name="Copy64" DependsOnTargets="Compile">
     <Message Text="=========== Copy x64 ===========" Importance="High" />
 
     <MakeDir Directories="$(BuildDir64)\bin" />
-
 
     <Copy SourceFiles="$(SourceDir)\Illallangi.GeoNames.PowerShell\bin\$(Configuration)\Common.Logging.dll"
           DestinationFolder="$(BuildDir64)\bin" />
@@ -168,6 +179,21 @@
           DestinationFolder="$(BuildDir64)\bin" />
 
     <Copy SourceFiles="$(SourceDir)\Illallangi.GeoNames.PowerShell\bin\$(Configuration)\Tavis.UriTemplates.dll"
+          DestinationFolder="$(BuildDir64)\bin" />
+
+    <Copy SourceFiles="$(SourceDir)\Illallangi.GeoNames.PowerShell\bin\$(Configuration)\Tavis.UriTemplates.dll"
+          DestinationFolder="$(BuildDir64)\bin" />
+
+    <Copy SourceFiles="$(SourceDir)\Illallangi.GeoNames.PowerShell\bin\$(Configuration)\System.Data.SQLite.dll"
+          DestinationFolder="$(BuildDir64)\bin" />
+
+    <Copy SourceFiles="$(SourceDir)\Illallangi.GeoNames.PowerShell\bin\$(Configuration)\Illallangi.LiteOrm.dll"
+          DestinationFolder="$(BuildDir64)\bin" />
+
+    <Copy SourceFiles="$(SourceDir)\Illallangi.GeoNames.PowerShell\bin\$(Configuration)\Illallangi.ETagCache.dll"
+          DestinationFolder="$(BuildDir64)\bin" />
+
+    <Copy SourceFiles="$(SourceDir)\Illallangi.GeoNames.PowerShell\bin\$(Configuration)\x64\SQLite.Interop.dll"
           DestinationFolder="$(BuildDir64)\bin" />
   </Target>
 
