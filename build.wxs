@@ -72,6 +72,8 @@
 
       <Component Id="IllallangiGeoNamesDllC" Directory="SOFTWAREDIR" Guid="{66D03A4A-F835-4883-B988-850FC3F68BF8}" Permanent="yes" >
         <File Id="IllallangiGeoNamesDllF" KeyPath="yes" Source="$(var.source)\Illallangi.GeoNames.dll" />
+        <File Id="IllallangiGeoNamesPsd1F" KeyPath="yes" Source="$(var.source)\Illallangi.GeoNames.Psd1" />
+        <File Id="IllallangiGeoNamesPsm1F" KeyPath="yes" Source="$(var.source)\Illallangi.GeoNames.Psm1" />
       </Component>
       <Component Id="IllallangiGeoNamesPowerShellDllC" Directory="SOFTWAREDIR" Guid="{77B93337-A55F-45AF-ADAC-07595FACAC7E}" Permanent="yes" >
         <File Id="IllallangiGeoNamesPowerShellDllF" KeyPath="yes" Source="$(var.source)\Illallangi.GeoNames.PowerShell.dll" />

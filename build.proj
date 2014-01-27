@@ -82,6 +82,12 @@
     <Copy SourceFiles="$(SourceDir)\Illallangi.GeoNames.PowerShell\bin\$(Configuration)\Illallangi.GeoNames.dll"
           DestinationFolder="$(BuildDir32)\bin" />
 
+    <Copy SourceFiles="$(SourceDir)\Illallangi.GeoNames.PowerShell\bin\$(Configuration)\Illallangi.GeoNames.psd1"
+          DestinationFolder="$(BuildDir32)\bin" />
+
+    <Copy SourceFiles="$(SourceDir)\Illallangi.GeoNames.PowerShell\bin\$(Configuration)\Illallangi.GeoNames.psm1"
+          DestinationFolder="$(BuildDir32)\bin" />
+
     <Copy SourceFiles="$(SourceDir)\Illallangi.GeoNames.PowerShell\bin\$(Configuration)\Illallangi.GeoNames.PowerShell.dll"
           DestinationFolder="$(BuildDir32)\bin" />
 
@@ -126,6 +132,12 @@
           DestinationFolder="$(BuildDir64)\bin" />
 
     <Copy SourceFiles="$(SourceDir)\Illallangi.GeoNames.PowerShell\bin\$(Configuration)\Illallangi.GeoNames.dll"
+          DestinationFolder="$(BuildDir64)\bin" />
+
+    <Copy SourceFiles="$(SourceDir)\Illallangi.GeoNames.PowerShell\bin\$(Configuration)\Illallangi.GeoNames.psd1"
+          DestinationFolder="$(BuildDir64)\bin" />
+
+    <Copy SourceFiles="$(SourceDir)\Illallangi.GeoNames.PowerShell\bin\$(Configuration)\Illallangi.GeoNames.psm1"
           DestinationFolder="$(BuildDir64)\bin" />
 
     <Copy SourceFiles="$(SourceDir)\Illallangi.GeoNames.PowerShell\bin\$(Configuration)\Illallangi.GeoNames.PowerShell.dll"
