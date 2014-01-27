@@ -38,8 +38,9 @@
     <Reference Include="Common.Logging.Log4Net">
       <HintPath>..\packages\Common.Logging.Log4Net.2.0.1\lib\net20\Common.Logging.Log4Net.dll</HintPath>
     </Reference>
-    <Reference Include="Illallangi.ETagCache">
-      <HintPath>..\packages\Illallangi.ETagCache.1.0.7\lib\Illallangi.ETagCache.dll</HintPath>
+    <Reference Include="Illallangi.ETagCache, Version=1.0.8.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Illallangi.ETagCache.1.0.8\lib\Illallangi.ETagCache.dll</HintPath>
     </Reference>
     <Reference Include="Illallangi.LiteOrm">
       <HintPath>..\packages\Illallangi.LiteOrm.1.0.20\lib\Illallangi.LiteOrm.dll</HintPath>

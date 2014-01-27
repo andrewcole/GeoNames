@@ -14,13 +14,13 @@
         {
         }
 
-        [Parameter(Mandatory = true)]
-        [ValidateRange(-180, 180)]
-        public double Longitude { get; set; }
-
-        [Parameter(Mandatory = true)]
+        [Parameter(Mandatory = true, Position = 1)]
         [ValidateRange(-90, 90)]
         public double Latitude { get; set; }
+
+        [Parameter(Mandatory = true, Position = 2)]
+        [ValidateRange(-180, 180)]
+        public double Longitude { get; set; }
 
         protected override void ProcessRecord()
         {
