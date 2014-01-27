@@ -1,0 +1,148 @@
+<?define Manufacturer="Illallangi" ?>
+<?define AppName="GeoNames.org Client" ?>
+<?define Version="0.0.0.1" ?>
+
+<?if $(sys.BUILDARCH)=x64 ?>
+<?define Win64="yes" ?>
+<?define PlatformProgramFilesFolder="ProgramFiles64Folder" ?>
+<?define PlatformSystemFolder="System64Folder" ?>
+<?define ProductId="{18F022FC-8527-451A-91AE-32C808752586}" ?>
+<?define UpgradeCode="{B163ED6E-E99E-46A5-923E-D7EF11663298}" ?>
+<?else ?>
+<?define Win64="no" ?>
+<?define PlatformProgramFilesFolder="ProgramFilesFolder" ?>
+<?define PlatformSystemFolder="SystemFolder" ?>
+<?define ProductId="{FD1BDD1C-867E-49A0-A4DD-F3CC1680AEAA}" ?>
+<?define UpgradeCode="{E044646D-D2A6-4E03-8986-E587B0BBD91F}" ?>
+<?endif ?>
+
+<Wix xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Name="$(var.AppName) $(sys.BUILDARCH) v$(var.Version)"
+           Manufacturer="$(var.Manufacturer)"
+           Version="$(var.Version)"
+           Id="$(var.ProductId)"
+           UpgradeCode="$(var.UpgradeCode)"
+           Language="1033"
+           Codepage="1252" >
+
+    <Package InstallerVersion="200" Compressed="yes" Id="*" />
+    <Media Id="1" Cabinet="package.cab" EmbedCab="yes" />
+
+    <Upgrade Id="$(var.UpgradeCode)">
+      <UpgradeVersion Minimum="$(var.Version)"
+                      IncludeMinimum="no"
+                      OnlyDetect="yes"
+                      Language="1033"
+                      Property="NEWPRODUCTFOUND"/>
+
+      <UpgradeVersion Maximum="$(var.Version)"
+                      IncludeMaximum="no"
+                      OnlyDetect="no"
+                      Language="1033"
+                      Property="OLDPRODUCTFOUND"/>
+    </Upgrade>
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Component Id="Empty" Guid="" />
+      <Directory Id="$(var.PlatformSystemFolder)">
+        <Directory Id="WindowsPowerShell" Name="WindowsPowerShell">
+          <Directory Id="v1.0" Name="v1.0">
+            <Directory Id="Modules" Name="Modules">
+              <Directory Id="SOFTWAREDIR" Name="Illallangi.GeoNames" />
+            </Directory>
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+
+    <!--
+    <Icon Id="favicon.ico" SourceFile="$(var.source)\favicon.ico" />
+    -->
+    <Property Id="ALLUSERS" Value="1" />
+    <Property Id="ARPPRODUCTICON" Value="favicon.ico" />
+    <Property Id="ARPNOMODIFY" Value="1" />
+
+    <Feature Id="Complete" Level="1" Title="$(var.AppName)">
+      <Component Id="CommonLoggingDllC" Directory="SOFTWAREDIR" Guid="{7466B52C-8440-43A3-A341-0C63B62AEDB3}" Permanent="yes" >
+        <File Id="CommonLoggingDllF" KeyPath="yes" Source="$(var.source)\Common.Logging.dll" />
+      </Component>
+      <Component Id="CommonLoggingLog4NetDllC" Directory="SOFTWAREDIR" Guid="{C6A927AC-9DA9-418F-A8F1-04A592E01388}" Permanent="yes" >
+        <File Id="CommonLoggingLog4NetDllF" KeyPath="yes" Source="$(var.source)\Common.Logging.Log4Net.dll" />
+      </Component>
+
+      <Component Id="IllallangiGeoNamesDllC" Directory="SOFTWAREDIR" Guid="{66D03A4A-F835-4883-B988-850FC3F68BF8}" Permanent="yes" >
+        <File Id="IllallangiGeoNamesDllF" KeyPath="yes" Source="$(var.source)\Illallangi.GeoNames.dll" />
+      </Component>
+      <Component Id="IllallangiGeoNamesPowerShellDllC" Directory="SOFTWAREDIR" Guid="{77B93337-A55F-45AF-ADAC-07595FACAC7E}" Permanent="yes" >
+        <File Id="IllallangiGeoNamesPowerShellDllF" KeyPath="yes" Source="$(var.source)\Illallangi.GeoNames.PowerShell.dll" />
+        <File Id="IllallangiGeoNamesPowerShellDllConfigF" KeyPath="no" Source="$(var.source)\Illallangi.GeoNames.PowerShell.dll.config" />
+      </Component>
+      <Component Id="IllallangiNinjectCmdletC" Directory="SOFTWAREDIR" Guid="{99570AA1-4559-4E0D-AC25-E1E8C92FB1F0}" Permanent="yes" >
+        <File Id="IllallangiNinjectCmdletF" KeyPath="yes" Source="$(var.source)\Illallangi.NinjectCmdlet.dll" />
+      </Component>
+      <Component Id="IllallangiRestClientC" Directory="SOFTWAREDIR" Guid="{1838F104-3CEC-4B89-B973-6A1D94A1BA75}" Permanent="yes" >
+        <File Id="IllallangiRestClientF" KeyPath="yes" Source="$(var.source)\Illallangi.RestClient.dll" />
+      </Component>
+
+      <Component Id="Log4NetDllC" Directory="SOFTWAREDIR" Guid="{8A29F0AA-CF80-4873-B63F-7F2AC96FD9C8}" Permanent="yes" >
+        <File Id="Log4NetDllF" KeyPath="yes" Source="$(var.source)\log4net.dll" />
+      </Component>
+      
+      <Component Id="NewtonsoftJsonDllC" Directory="SOFTWAREDIR" Guid="{AF475FEA-6A21-4EA7-99AA-1CEA5D9DF8DF}" Permanent="yes" >
+        <File Id="NewtonsoftJsonDllF" KeyPath="yes" Source="$(var.source)\Newtonsoft.Json.dll" />
+      </Component>
+
+      <Component Id="NinjectDllC" Directory="SOFTWAREDIR" Guid="{4C17A744-657B-4E71-B7E2-0632F4E8C119}" Permanent="yes" >
+        <File Id="NinjectDllF" KeyPath="yes" Source="$(var.source)\ninject.dll" />
+      </Component>
+
+      <Component Id="NodaTimeDllC" Directory="SOFTWAREDIR" Guid="{228B3047-76FE-4C23-9B27-A20608BBD522}" Permanent="yes" >
+        <File Id="NodaTimeDllF" KeyPath="yes" Source="$(var.source)\NodaTime.dll" />
+      </Component>
+      
+      <Component Id="RestSharpDllC" Directory="SOFTWAREDIR" Guid="{7AF326B9-A82B-41E9-9E5A-D1B7A9E5E21A}" Permanent="yes" >
+        <File Id="RestSharpDllF" KeyPath="yes" Source="$(var.source)\RestSharp.dll" />
+      </Component>
+
+      <Component Id="TavisUriTemplatesDllC" Directory="SOFTWAREDIR" Guid="{9897E39E-4513-4E95-9050-F993C35F48DC}" Permanent="yes" >
+        <File Id="TavisUriTemplatesDllF" KeyPath="yes" Source="$(var.source)\Tavis.UriTemplates.dll" />
+      </Component>
+
+      <ComponentRef Id="Empty" />
+    </Feature>
+
+    <UI Id="Minimal">
+      <TextStyle Id="WixUI_Font_Normal" FaceName="Tahoma" Size="8" />
+      <TextStyle Id="WixUI_Font_Bigger" FaceName="Tahoma" Size="12" />
+      <TextStyle Id="WixUI_Font_Title" FaceName="Tahoma" Size="9" Bold="yes" />
+      <Property Id="DefaultUIFont" Value="WixUI_Font_Normal" />
+      <Property Id="WixUI_Mode" Value="Minimal" />
+      <DialogRef Id="ErrorDlg" />
+      <DialogRef Id="FatalError" />
+      <DialogRef Id="FilesInUse" />
+      <DialogRef Id="MsiRMFilesInUse" />
+      <DialogRef Id="PrepareDlg" />
+      <DialogRef Id="ProgressDlg" />
+      <DialogRef Id="ResumeDlg" />
+      <DialogRef Id="UserExit" />
+      <DialogRef Id="WelcomeDlg" />
+      <DialogRef Id="VerifyReadyDlg" />
+      <Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="VerifyReadyDlg">1</Publish>
+      <Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg">1</Publish>
+      <Publish Dialog='ExitDialog' Control='Finish' Event='EndDialog' Value='Return'>1</Publish>
+    </UI>
+
+    <UIRef Id="WixUI_Common" />
+
+    <CustomAction Id="PreventDowngrading" Error="Newer version already installed." />
+
+    <InstallExecuteSequence>
+      <RemoveExistingProducts After="InstallInitialize" />
+      <Custom Action="PreventDowngrading" After="FindRelatedProducts">NEWPRODUCTFOUND</Custom>
+    </InstallExecuteSequence>
+
+    <InstallUISequence>
+      <Custom Action="PreventDowngrading" After="FindRelatedProducts">NEWPRODUCTFOUND</Custom>
+    </InstallUISequence>
+  </Product>
+</Wix>
